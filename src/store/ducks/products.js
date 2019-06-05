@@ -17,7 +17,7 @@ export default Creators;
 
 export const INITIAL_STATE = Immutable({
   data: [],
-  currentCategory: null,
+  currentCategory: 1,
 });
 
 /* Reducers */
