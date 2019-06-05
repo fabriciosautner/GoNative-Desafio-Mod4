@@ -42,7 +42,7 @@ class Menu extends Component {
               active={option.id === currentCategory}
               onPress={() => this.handleClickMenu(option.id)}
             >
-              <ItemText teste={option.id === currentCategory}>{option.title}</ItemText>
+              <ItemText active={option.id === currentCategory}>{option.title}</ItemText>
             </Item>
           )}
         />
