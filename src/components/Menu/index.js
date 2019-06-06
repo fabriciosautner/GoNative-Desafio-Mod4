@@ -28,13 +28,12 @@ class Menu extends Component {
   };
 
   render() {
-    const { menu } = this.props;
-    const { currentCategory } = this.props;
+    const { menu, currentCategory } = this.props;
 
     return (
       <Container>
         <OptionsMenu
-          data={menu.categories} 
+          data={menu.categories}
           horizontal
           keyExtractor={option => String(option.id)}
           renderItem={({ item: option }) => (
