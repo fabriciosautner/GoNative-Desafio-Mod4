@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withNavigation } from 'react-navigation';
 import numeral from 'numeral';
 
 import { connect } from 'react-redux';
@@ -16,28 +17,27 @@ class Listing extends Component {
     loadProductsRequest(products.currentCategory);
   }
 
-  renderList = product => (
-    <Product
-      key={product.id}
-      onPress={() => this.props.navigation.navigate('Products', { id: product.id })}
-    >
-      <Image
-        source={{
-          uri: product.image,
-        }}
-      />
-      <Details>
-        <Name>{product.name}</Name>
-        <Mark>{product.brand}</Mark>
-        <Price>{`R$ ${numeral(product.price).format('00,00')}`}</Price>
-      </Details>
-    </Product>
-  );
+  renderList = (product) => {
+    const { navigation } = this.props;
+    console.tron.log(this.props);
+    return (
+      <Product key={product.id} onPress={() => navigation.navigate('Product')}>
+        <Image
+          source={{
+            uri: product.image,
+          }}
+        />
+        <Details>
+          <Name>{product.name}</Name>
+          <Mark>{product.brand}</Mark>
+          <Price>{`R$ ${numeral(product.price).format('00,00')}`}</Price>
+        </Details>
+      </Product>
+    );
+  };
 
   render() {
     const { products, navigation } = this.props;
-
-    console.tron.log(navigation);
     return (
       <Container>
         <Content loading={products.loading}>
@@ -60,4 +60,4 @@ const mapDispatchToProps = dispatch => bindActionCreators(ProductsActions, dispa
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Listing);
+)(withNavigation(Listing));
