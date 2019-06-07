@@ -1,18 +1,20 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.ScrollView`
-  background: #c4c4c4;
+  background: #dddddd;
 `;
 
 export const Content = styled.View`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: ${({ loading }) => (loading ? 'center' : 'space-between')};
   margin: 20px;
 `;
 
-export const Product = styled.View`
+export const Product = styled.TouchableOpacity.attrs({
+  activeOpacity: 0.6,
+})`
   background: #fff;
   width: 49%;
   display: flex;

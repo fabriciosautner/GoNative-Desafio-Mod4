@@ -21,7 +21,6 @@ export const Item = styled.TouchableOpacity.attrs({
 export const ItemText = styled.Text`
   display: flex;
   text-align: center;
-  border: 1px solid red;
   color: #fff;
   text-transform: uppercase;
   font-size: 16px;
